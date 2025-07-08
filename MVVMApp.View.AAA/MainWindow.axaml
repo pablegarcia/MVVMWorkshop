@@ -1,0 +1,83 @@
+<Window x:Class="MVVMApp.View.AAA.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:MVVMApp.ViewModel;assembly=MVVMApp.ViewModel"
+        Width="800" Height="450"
+        Title="AAA"
+        Background="#F7E4B8">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Greeting}"
+                   Grid.Row="1"
+                   Grid.Column="1" />
+
+        <StackPanel VerticalAlignment="Top"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Orientation="Vertical">
+            <Button Content="Get data (Sync)"
+                    Command="{Binding GetDataCommand}"
+                    Margin="0,0,0,10" />
+            <Button Content="Get data (Async)"
+                    Command="{Binding GetDataCommandAsync}"
+                    Margin="0,0,0,10" />
+            <Button Content="Clear data"
+                    Command="{Binding ClearDataCommandAsync}" />
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      Grid.Row="3"
+                      Grid.Column="3">
+            <ItemsControl ItemsSource="{Binding Employees}"
+                          HorizontalAlignment="Center">
+                <ItemsControl.DataTemplates>
+                    <DataTemplate DataType="{x:Type data:IEmployeeVM}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="10" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Name}"
+                                       FontWeight="Bold" />
+                                <Label Content="{Binding LastName}"
+                                       FontWeight="Bold" />
+                            </StackPanel>
+                            <Button Content="Details"
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    Command="{Binding $parent[ItemsControl].DataContext.ShowDetailsDialogCommand}"
+                                    CommandParameter="{Binding}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.DataTemplates>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button Content="Full Collect"
+                Command="{Binding FullCollectCommand}"
+                Grid.Row="1"
+                Grid.Column="5"/>
+    </Grid>
+</Window>

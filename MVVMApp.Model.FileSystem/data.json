@@ -1,0 +1,25 @@
+﻿{
+    "Employees": [
+        {
+            "Name": "Bob",
+            "LastName": "Sponge",
+            "Email": "bob.sponge@pablo.com",
+            "Rol": "Fry cook/waiter",
+            "Location": "Under the sea"
+        },
+        {
+            "Name": "Dwight",
+            "LastName": "Schrute",
+            "Email": "dwight.schrute@pablo.com",
+            "Rol": "Officer Assistant",
+            "Location": "The Office"
+        },
+        {
+            "Name": "Aaron",
+            "LastName": "Abeyta",
+            "Email": "aaron.abeyta@pablo.com",
+            "Rol": "The Boss",
+            "Location": "California"
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+<Window x:Class="MVVMApp.View.CCC.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:MVVMApp.ViewModel;assembly=MVVMApp.ViewModel"
+        xmlns:interactivity="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+        xmlns:interactions="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        Width="800"
+        Height="450"
+        Title="CCC"
+        Background="#CBDFF1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Greeting}"
+                   Grid.Row="0"
+                   Grid.Column="1" />
+
+        <StackPanel VerticalAlignment="Top"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+            <Label Content="Get Data:" />
+            <ComboBox x:Name="ComboBoxSelection">
+                <interactivity:Interaction.Behaviors>
+                    <interactions:EventTriggerBehavior EventName="SelectionChanged"
+                                                       SourceObject="{Binding #ComboBoxSelection}">
+                        <interactions:InvokeCommandAction Command="{Binding GetDataCommandAsync}"/>
+                        <interactions:ChangePropertyAction TargetObject="{Binding #ComboBoxSelection}"
+                                                           PropertyName="SelectedIndex"
+                                                           Value="-1" />
+                    </interactions:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+                <ComboBoxItem Content="Async" />
+            </ComboBox>
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Center"
+                      Grid.Row="2"
+                      Grid.Column="4">
+            <ItemsControl ItemsSource="{Binding Employees}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.DataTemplates>
+                    <DataTemplate DataType="{x:Type data:IEmployeeVM}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="10" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.ColumnSpan="2">
+                                <Label Content="{Binding Name}"
+                                       FontWeight="Bold" />
+                                <Label Content="{Binding LastName}"
+                                       FontWeight="Bold" />
+                            </StackPanel>
+                            <Label Content="Email: "
+                                   Grid.Row="1"
+                                    Grid.Column="0" />
+                            <TextBox Text="{Binding Email}"
+                                     Grid.Row="1"
+                                     Grid.Column="1" />
+                            <Label Content="Rol: "
+                                   Grid.Row="2"
+                                    Grid.Column="0" />
+                            <TextBox Text="{Binding Rol}"
+                                     Grid.Row="2"
+                                     Grid.Column="1" />
+                            <Label Content="Location: "
+                                   Grid.Row="3"
+                                    Grid.Column="0" />
+                            <TextBox Text="{Binding Location}"
+                                     Grid.Row="3"
+                                     Grid.Column="1" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.DataTemplates>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>

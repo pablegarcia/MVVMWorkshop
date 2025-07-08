@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMApp.LoggingService\MVVMApp.LogService.csproj" />
+    <ProjectReference Include="..\MVVMApp.Model.DB\MVVMApp.Model.DB.csproj" />
+    <ProjectReference Include="..\MVVMApp.Model.FileSystem\MVVMApp.Model.FileSystem.csproj" />
+    <ProjectReference Include="..\MVVMApp.View.AAA\MVVMApp.View.AAA.csproj" />
+    <ProjectReference Include="..\MVVMApp.View.BBB\MVVMApp.View.BBB.csproj" />
+    <ProjectReference Include="..\MVVMApp.View.CCC\MVVMApp.View.CCC.csproj" />
+    <ProjectReference Include="..\MVVMApp.ViewModel.Custom\MVVMApp.ViewModel.Custom.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

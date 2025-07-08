@@ -1,0 +1,63 @@
+<Window x:Class="MVVMApp.View.AAA.DetailsDialog"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="800" Height="450"
+        Title="Details"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True">
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Panel Margin="40">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Name}"
+                           Foreground="White"
+                           FontWeight="Bold" />
+                    <Label Content="{Binding LastName}"
+                           Foreground="White"
+                           FontWeight="Bold" />
+                </StackPanel>
+                <Label Content="{Binding Rol}"
+                       Foreground="White"
+                       Grid.Row="2" />
+                <Label Content="{Binding Email}"
+                       Foreground="White"
+                       Grid.Row="4" />
+                <Label Content="{Binding Location}"
+                       Foreground="White"
+                       Grid.Row="6" />
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="8">
+                    <Label Content="Heartbeat: "
+                           Foreground="White" />
+                    <Label Content="{Binding Heartbeats}"
+                           Foreground="#00AEFF" />
+                    <Button Content="Clear"
+                            Command="{Binding ClearHeartbeatsCommand}"
+                            Foreground="White"
+                            Margin="10,0,0,0" />
+                </StackPanel>
+            </Grid>
+        </Panel>
+    </Panel>
+</Window>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMApp.ViewModel\MVVMApp.ViewModel.csproj" />
+    <ProjectReference Include="..\MVVMApp.View\MVVMApp.View.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainWindow.axaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MainWindow.axaml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+
+</Project>

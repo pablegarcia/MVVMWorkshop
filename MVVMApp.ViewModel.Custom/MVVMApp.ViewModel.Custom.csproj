@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMApp.Model\MVVMApp.Model.csproj" />
+    <ProjectReference Include="..\MVVMApp.Services\MVVMApp.Services.csproj" />
+    <ProjectReference Include="..\MVVMApp.ViewModel\MVVMApp.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

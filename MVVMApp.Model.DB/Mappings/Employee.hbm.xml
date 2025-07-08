@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"  assembly="MVVMApp.Model.DB" namespace="MVVMApp.Model.DB">
+    <class name="Employee" table="Employees">
+        <id name="Id" column="Id" type="System.UInt32">
+            <generator class="identity" />
+        </id>
+        <property name="Name" column="Name" />
+        <property name="LastName" column="LastName" />
+        <property name="Email" column="Email" />
+        <property name="Rol" column="Rol" />
+        <property name="Location" column="Location" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.3.0.6" />
+    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="11.3.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMApp.ViewModel\MVVMApp.ViewModel.csproj" />
+    <ProjectReference Include="..\MVVMApp.View\MVVMApp.View.csproj" />
+  </ItemGroup>
+
+</Project>

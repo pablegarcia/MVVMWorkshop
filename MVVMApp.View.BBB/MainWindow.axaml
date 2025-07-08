@@ -1,0 +1,71 @@
+<Window x:Class="MVVMApp.View.BBB.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:MVVMApp.ViewModel;assembly=MVVMApp.ViewModel"
+        Width="800" Height="450"
+        Title="BBB">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Greeting}"
+                   Grid.Row="0"
+                   Grid.Column="1" />
+
+        <StackPanel VerticalAlignment="Top"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Vertical">
+            <Button Content="Get Data"
+                    Command="{Binding GetDataCommandAsync}" />
+        </StackPanel>
+
+        <ItemsControl ItemsSource="{Binding Employees}"
+                      HorizontalAlignment="Center"
+                      Grid.Row="2"
+                      Grid.Column="4">
+            <ItemsControl.DataTemplates>
+                <DataTemplate DataType="{x:Type data:IEmployeeVM}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="10" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Name}"
+                                   FontWeight="Bold" />
+                            <Label Content="{Binding LastName}"
+                                   FontWeight="Bold" />
+                        </StackPanel>
+                        <Label Content="{Binding Email}"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2" />
+                        <Label Content="{Binding Rol}"
+                               Grid.Row="1" />
+                        <Label Content=" - "
+                               Grid.Row="1"
+                               Grid.Column="1" />
+                        <Label Content="{Binding Location}"
+                               Grid.Row="1"
+                               Grid.Column="2" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.DataTemplates>
+        </ItemsControl>
+    </Grid>
+</Window>
