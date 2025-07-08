@@ -30,3 +30,4 @@
 /MVVMApp/obj
 MVVMApp.TS/MVVMApp.TS.njsproj.user
 /.vs
+/MVVMApp.TS/node_modules
