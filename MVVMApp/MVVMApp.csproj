@@ -20,6 +20,7 @@
     <ProjectReference Include="..\MVVMApp.LoggingService\MVVMApp.LogService.csproj" />
     <ProjectReference Include="..\MVVMApp.Model.DB\MVVMApp.Model.DB.csproj" />
     <ProjectReference Include="..\MVVMApp.Model.FileSystem\MVVMApp.Model.FileSystem.csproj" />
+    <ProjectReference Include="..\MVVMApp.Model.Service\MVVMApp.Model.Web.csproj" />
     <ProjectReference Include="..\MVVMApp.View.AAA\MVVMApp.View.AAA.csproj" />
     <ProjectReference Include="..\MVVMApp.View.BBB\MVVMApp.View.BBB.csproj" />
     <ProjectReference Include="..\MVVMApp.View.CCC\MVVMApp.View.CCC.csproj" />
